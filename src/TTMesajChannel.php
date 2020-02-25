@@ -107,6 +107,7 @@ class TTMesajChannel
             if ($this->debug) {
                 Log::info('TTMesaj is disabled');
             }
+
             return false;
         }
 

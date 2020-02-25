@@ -41,6 +41,7 @@ class TTMesajMessage
     public function setBody(string $value)
     {
         $this->body = $value;
+
         return $this;
     }
 
@@ -51,6 +52,7 @@ class TTMesajMessage
     public function setSendTime(Carbon $value)
     {
         $this->sendTime = $value->format('YmdHi');
+
         return $this;
     }
 
@@ -61,6 +63,7 @@ class TTMesajMessage
     public function setEndTime(Carbon $value)
     {
         $this->endTime = $value->format('YmdHi');
+
         return $this;
     }
 }
