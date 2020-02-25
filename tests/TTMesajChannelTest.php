@@ -51,7 +51,7 @@ class TTMesajChannelTest extends TestCase
 
         $testClient = Mockery::mock(\SoapClient::class);
         $testClient->shouldReceive('sendSingleSMS')->andReturn([
-            'OK'
+            'OK',
         ]);
 
         $testChannel = Mockery::mock(TTMesajChannel::class, [$testConfig])->makePartial()->shouldAllowMockingProtectedMethods();
