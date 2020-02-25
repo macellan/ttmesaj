@@ -96,8 +96,8 @@ class TTMesajChannel
      * Send the given notification.
      *
      * @param mixed $notifiable
-     *
      * @param Notification $notification
+     *
      * @return void|array
      * @throws CouldNotSendNotification
      */
@@ -108,7 +108,7 @@ class TTMesajChannel
                 Log::info('TTMesaj is disabled');
             }
 
-            return false;
+            return;
         }
 
         /** @var TTMesajMessage $message */

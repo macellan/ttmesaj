@@ -13,9 +13,9 @@ class TTMesajMessage
      */
     public $body;
 
-    public $sendTime = 0;
+    public $sendTime;
 
-    public $endTime = 0;
+    public $endTime;
 
     /**
      * @param string $body

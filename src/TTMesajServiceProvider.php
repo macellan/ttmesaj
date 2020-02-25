@@ -14,7 +14,7 @@ class TTMesajServiceProvider extends ServiceProvider
     public function boot()
     {
         Notification::resolved(function (ChannelManager $service) {
-            $service->extend('ttmesaj', function ($app) {
+            $service->extend('ttmesaj', function () {
                 return new TTMesajChannel(config('services.ttmesaj'));
             });
         });
