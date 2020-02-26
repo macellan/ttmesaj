@@ -55,6 +55,7 @@ Add your TTMesaj sms gate login, password and default sender name to your config
 You can use the channel in your via() method inside the notification:
 
 ```php
+use Carbon\Carbon;
 use Illuminate\Notifications\Notification;
 use Macellan\TTMesaj\TTMesajMessage;
 

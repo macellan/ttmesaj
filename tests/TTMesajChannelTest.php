@@ -6,6 +6,7 @@ use Illuminate\Notifications\Notifiable;
 use Illuminate\Notifications\Notification;
 use Mockery;
 use PHPUnit\Framework\TestCase;
+use SoapClient;
 
 class TTMesajChannelTest extends TestCase
 {
@@ -20,7 +21,7 @@ class TTMesajChannelTest extends TestCase
     }
 
     /** @test */
-    public function it_can_be_instantiate()
+    public function itCanBeInstantiate()
     {
         $testConfig = [
             'login' => 'TEST_LOGIN',
@@ -37,7 +38,7 @@ class TTMesajChannelTest extends TestCase
     }
 
     /** @test */
-    public function it_sends_a_notification()
+    public function itSendsNotification()
     {
         $testConfig = [
             'login' => 'TEST_LOGIN',
@@ -49,19 +50,21 @@ class TTMesajChannelTest extends TestCase
             'sandboxMode' => false,
         ];
 
-        $testClient = Mockery::mock(\SoapClient::class);
+        $testClient = Mockery::mock(SoapClient::class);
         $testClient->shouldReceive('sendSingleSMS')->andReturn([
             'OK',
         ]);
 
-        $testChannel = Mockery::mock(TTMesajChannel::class, [$testConfig])->makePartial()->shouldAllowMockingProtectedMethods();
+        $testChannel = Mockery::mock(TTMesajChannel::class, [$testConfig])
+            ->makePartial()
+            ->shouldAllowMockingProtectedMethods();
         $testChannel->shouldReceive('getClient')->andReturn($testClient);
 
         $this->assertIsArray($testChannel->send(new TestNotifiable(), new TestNotification()));
     }
 
     /** @test */
-    public function it_do_not_invoke_api_in_sandbox_mode()
+    public function itDoNotInvokeApiInSandboxMode()
     {
         $testConfig = [
             'login' => 'TEST_LOGIN',
@@ -72,9 +75,10 @@ class TTMesajChannelTest extends TestCase
             'sandboxMode' => true,
         ];
 
-        $testClient = Mockery::spy(\SoapClient::class);
-
-        $testChannel = Mockery::mock(TTMesajChannel::class, [$testConfig])->makePartial()->shouldAllowMockingProtectedMethods();
+        $testClient = Mockery::spy(SoapClient::class);
+        $testChannel = Mockery::mock(TTMesajChannel::class, [$testConfig])
+            ->makePartial()
+            ->shouldAllowMockingProtectedMethods();
         $testChannel->shouldReceive('getClient')->andReturn($testClient);
 
         $this->assertNull($testChannel->send(new TestNotifiable(), new TestNotification()));

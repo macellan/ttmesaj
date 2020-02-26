@@ -60,14 +60,6 @@ class TTMesajChannel
      */
     protected $sandboxMode;
 
-    /**
-     * @return mixed
-     */
-    public function getWsdlEndpoint()
-    {
-        return $this->wsdlEndpoint;
-    }
-
     public function __construct(array $config = [])
     {
         $this->username = Arr::get($config, 'username');

@@ -8,7 +8,7 @@ use PHPUnit\Framework\TestCase;
 class TTMesajMessageTest extends TestCase
 {
     /** @test */
-    public function it_can_be_instantiate()
+    public function itCanBeInstantiate()
     {
         $instance = TTMesajMessage::create()
             ->setBody('TEST_BODY')

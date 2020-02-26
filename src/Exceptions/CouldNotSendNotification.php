@@ -4,7 +4,7 @@ namespace Macellan\TTMesaj\Exceptions;
 
 use Exception;
 
-class CouldNotSendNotification extends \Exception
+class CouldNotSendNotification extends Exception
 {
     /**
      * Thrown when we're unable to communicate with ttmesaj.
