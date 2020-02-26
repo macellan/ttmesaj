@@ -14,6 +14,7 @@ class TTMesajMessageTest extends TestCase
             ->setBody('TEST_BODY')
             ->setSendTime(Carbon::now())
             ->setEndTime(Carbon::now()->addDay());
+
         $this->assertInstanceOf(TTMesajMessage::class, $instance);
     }
 }

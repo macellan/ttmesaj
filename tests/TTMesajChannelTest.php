@@ -24,10 +24,10 @@ class TTMesajChannelTest extends TestCase
     public function itCanBeInstantiate()
     {
         $testConfig = [
-            'login' => 'TEST_LOGIN',
-            'password' => 'TEST_PASSWORD',
             'wsdlEndpoint' => 'https://ws.ttmesaj.com/Service1.asmx?WSDL',
-            'sender' => 'TEST_SENDER',
+            'username' => 'TEST_USERNAME',
+            'password' => 'TEST_PASSWORD',
+            'origin' => 'TEST_ORIGIN',
             'enable' => true,
             'debug' => false,
             'sandboxMode' => false,
@@ -41,10 +41,10 @@ class TTMesajChannelTest extends TestCase
     public function itSendsNotification()
     {
         $testConfig = [
-            'login' => 'TEST_LOGIN',
-            'password' => 'TEST_PASSWORD',
             'wsdlEndpoint' => 'https://ws.ttmesaj.com/Service1.asmx?WSDL',
-            'sender' => 'TEST_SENDER',
+            'username' => 'TEST_USERNAME',
+            'password' => 'TEST_PASSWORD',
+            'origin' => 'TEST_ORIGIN',
             'enable' => true,
             'debug' => false,
             'sandboxMode' => false,
@@ -67,12 +67,13 @@ class TTMesajChannelTest extends TestCase
     public function itDoNotInvokeApiInSandboxMode()
     {
         $testConfig = [
-            'login' => 'TEST_LOGIN',
-            'password' => 'TEST_PASSWORD',
             'wsdlEndpoint' => 'https://ws.ttmesaj.com/Service1.asmx?WSDL',
-            'sender' => 'TEST_SENDER',
+            'username' => 'TEST_USERNAME',
+            'password' => 'TEST_PASSWORD',
+            'origin' => 'TEST_ORIGIN',
+            'enable' => true,
             'debug' => false,
-            'sandboxMode' => true,
+            'sandboxMode' => false,
         ];
 
         $testClient = Mockery::spy(SoapClient::class);
