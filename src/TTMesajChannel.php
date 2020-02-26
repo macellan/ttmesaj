@@ -2,7 +2,6 @@
 
 namespace Macellan\TTMesaj;
 
-use Exception;
 use Illuminate\Notifications\Notification;
 use Illuminate\Support\Arr;
 use Illuminate\Support\Facades\Log;
@@ -79,7 +78,7 @@ class TTMesajChannel
     {
         try {
             return new SoapClient($this->wsdlEndpoint);
-        } catch (Exception $exception) {
+        } catch (\Exception $exception) {
             throw CouldNotSendNotification::couldNotCommunicateWithEndPoint($exception);
         }
     }
