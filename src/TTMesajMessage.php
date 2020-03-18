@@ -17,6 +17,8 @@ class TTMesajMessage
 
     public $endTime;
 
+    public $addNumbers;
+
     /**
      * @param string $body
      * @return static
@@ -32,6 +34,7 @@ class TTMesajMessage
     public function __construct(string $body)
     {
         $this->body = $body;
+        $this->addNumbers = [];
     }
 
     /**
@@ -63,6 +66,17 @@ class TTMesajMessage
     public function setEndTime(Carbon $value)
     {
         $this->endTime = $value->format('YmdHi');
+
+        return $this;
+    }
+
+    /**
+     * @param array $array
+     * @return $this
+     */
+    public function addNumbers(array $array)
+    {
+        $this->addNumbers = $array;
 
         return $this;
     }

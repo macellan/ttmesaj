@@ -108,10 +108,13 @@ class TTMesajChannel
             $message = new TTMesajMessage($message);
         }
 
+        array_push($message->addNumbers, $notifiable->routeNotificationFor('ttmesaj'));
+        $numbers = implode(',', $message->addNumbers);
+
         $sms = [
             'username' => $this->username,
             'password' => $this->password,
-            'numbers' => $notifiable->routeNotificationFor('ttmesaj'),
+            'numbers' => $numbers,
             'message' => $message->body,
             'origin' => $this->origin,
             'sd' => $message->sendTime,
