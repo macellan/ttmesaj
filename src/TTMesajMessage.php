@@ -20,7 +20,7 @@ class TTMesajMessage
     public $addNumbers;
 
     /**
-     * @param string $body
+     * @param  string  $body
      * @return static
      */
     public static function create($body = '')
@@ -29,7 +29,7 @@ class TTMesajMessage
     }
 
     /**
-     * @param string $body
+     * @param  string  $body
      */
     public function __construct(string $body)
     {
@@ -38,7 +38,7 @@ class TTMesajMessage
     }
 
     /**
-     * @param string $value
+     * @param  string  $value
      * @return $this
      */
     public function setBody(string $value)
@@ -49,7 +49,7 @@ class TTMesajMessage
     }
 
     /**
-     * @param Carbon $value
+     * @param  Carbon  $value
      * @return $this
      */
     public function setSendTime(Carbon $value)
@@ -60,7 +60,7 @@ class TTMesajMessage
     }
 
     /**
-     * @param Carbon $value
+     * @param  Carbon  $value
      * @return $this
      */
     public function setEndTime(Carbon $value)
@@ -71,7 +71,7 @@ class TTMesajMessage
     }
 
     /**
-     * @param array $array
+     * @param  array  $array
      * @return $this
      */
     public function addNumbers(array $array)
